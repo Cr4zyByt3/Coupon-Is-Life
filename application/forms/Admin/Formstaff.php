@@ -1,11 +1,11 @@
 <?php
 
-class Application_Form_Public_User extends Zend_Form
+class Application_Form_Admin_Formstaff extends Zend_Form
 {
     public function init() {
         
         $this->setMethod('post');
-        $this->setName('registrazione');
+        $this->setName('registrazione staff');
         $this->setAction('');
         
         $this->addElement('text', 'nome', array(
@@ -84,10 +84,10 @@ class Application_Form_Public_User extends Zend_Form
 //            'label' => 'Conferma la password',
 //            'required' => 'true'));
         $this->addElement('hidden', 'livello', array(
-            'value' => 'user'));
+            'value' => 'staff'));
         
         $this->addElement('submit', 'add', array(
-             'label' => 'Registrati'));
+             'label' => 'Aggiungi membro staff'));
     }
 
 }
