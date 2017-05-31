@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Public_Auth_Login extends App_Form_Abstract
+class Application_Form_Public_Auth_Login extends Zend_Form
 {
     public function init()
     {               
@@ -18,7 +18,7 @@ class Application_Form_Public_Auth_Login extends App_Form_Abstract
             //'decorators' => $this->elementDecorators,
             ));
         
-        $this->addElement('password', 'passwd', array(
+        $this->addElement('password', 'password', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
                 array('StringLength', true, array(3, 25))

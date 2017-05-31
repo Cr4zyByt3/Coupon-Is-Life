@@ -3,14 +3,18 @@
 class PublicController extends Zend_Controller_Action
 {
     protected $_catalogoModel;
-    protected $_form;
+    protected $_formReg;
+    protected $_formLog;
+    protected $_authService;
     
     public function init()
     {
 	$this->_helper->layout->setLayout('main');
         $this->_catalogoModel = new Application_Model_Catalogo();
         $this->_utentiModel = new Application_Model_Utenti();
-        $this->view->registrazioneForm = $this->getRegistrazioneForm();
+        $this->_authService = new Application_Service_Auth();
+        $this->view->userForm = $this->getUserForm();
+        $this->view->loginForm = $this->getLoginForm();
     }
     
     public function indexAction()
@@ -38,35 +42,52 @@ class PublicController extends Zend_Controller_Action
         if (!$this->getRequest()->isPost()) {
             $this->_helper->redirector('index','public');
         }
-	$form=$this->_form;
-        if (!$form->isValid($_POST)) {
-            $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
+	$formReg=$this->_formReg;
+        if (!$formReg->isValid($_POST)) {
             return $this->render('logreg');
         }
-        $anagrafica = array($form->getValue('nome'),
-            $form->getValue('cognome'),
-            $form->getValue('data_di_nascita'),
-            $form->getValue('genere'),
-            $form->getValue('provincia'),
-            $form->getValue('citta'),
-            $form->getValue('telefono'),
-            $form->getValue('email'));
-        $credenziali = array($form->getValue('username'),
-             $form->getValue('password'));
-       	$this->_utentiModel->registraUtente($anagrafica);
-        $this->_utentiModel->registraCredenziali($credenziali);
-        $this->setDescription('Utente registrato correttamente.');
+        $values = $formReg->getValues();
+       	$this->_utentiModel->registraUser($values);
     }
     
-    private function getRegistrazioneForm()
+    private function getLoginForm()
     {
         $urlHelper = $this->_helper->getHelper('url');
-        $this->_form = new Application_Form_Public_Registrazione();
-        $this->_form->setAction($urlHelper->url(array(
+        $this->_formLog = new Application_Form_Public_Auth_Login();
+        $this->_formLog->setAction($urlHelper->url(array(
+                        'controller' => 'public',
+                        'action' => 'authenticate'),
+                        'default'
+                        ));
+        return $this->_formLog;
+    }
+    
+    private function getUserForm()
+    {
+        $urlHelper = $this->_helper->getHelper('url');
+        $this->_formReg = new Application_Form_Public_User();
+        $this->_formReg->setAction($urlHelper->url(array(
                         'controller' => 'public',
                         'action' => 'registra'),
                         'default'
                         ));
-        return $this->_form;
+        return $this->_formReg;
+    }
+    
+    public function authenticateAction()
+    {
+        $request = $this->getRequest();
+        if (!$request->isPost()) {
+            $this->_helper->redirector('logreg','public');
+        }
+	$formLog = $this->_formLog;
+        if (!$formLog->isValid($request->getPost())) {
+            return $this->render('logreg');
+        }
+        if (false === $this->_authService->authenticate($formLog->getValues())) {
+            return $this->render('logreg');
+        }
+        $livello = $this->_authService->getIdentity()->livello;
+        return $this->_helper->redirector('index', $livello);
     }
 }
