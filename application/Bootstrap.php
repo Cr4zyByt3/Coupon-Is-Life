@@ -26,8 +26,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap	// extends definisc
         $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/cssBootstrap/bootstrap.min.css'));
         $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/cssBootstrap/modern-business.css'));
         $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/font-awesome/css/font-awesome.min.css'));
+        $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/cssBootstrap/logreg.css'));
+        $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/cssBootstrap/navbar.css'));
         $this->_view->headScript()->appendFile($this->_view->baseUrl('js/jquery.js'));
         $this->_view->headScript()->appendFile($this->_view->baseUrl('js/bootstrap.min.js'));
+        $this->_view->headScript()->appendFile($this->_view->baseUrl('js/script.js'));
         $this->_view->headTitle('Coupon Is Life');
     }
     
