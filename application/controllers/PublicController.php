@@ -3,6 +3,7 @@
 class PublicController extends Zend_Controller_Action
 {
     protected $_catalogoModel;
+    protected $_utentiModel;
     protected $_formReg;
     protected $_formLog;
     protected $_authService;
@@ -25,6 +26,12 @@ class PublicController extends Zend_Controller_Action
     {
         $az=$this->_catalogoModel->getAziende();
         $this->view->assign(array('aziende' => $az));
+    }
+    
+    public function categorieAction()
+    {
+        $cat=$this->_catalogoModel->getCategorie();
+        $this->view->assign(array('categorie' => $cat));
     }
     
     public function viewstaticAction()
