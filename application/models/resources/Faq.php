@@ -10,6 +10,12 @@ class Application_Resource_Faq extends Zend_Db_Table_Abstract	// viene bypassata
     {
     }
     
+    public function getFaq()
+    {
+     $select= $this->select();
+     return $this->fetchAll($select);
+    }
+    
     public function registraFaq($info)
     {
         return $this->insert($info);
