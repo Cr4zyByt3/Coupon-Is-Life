@@ -15,4 +15,9 @@ class Application_Model_Catalogo extends App_Model_Abstract
     {
         return $this->getResource('Azienda')->getAziende();
     }
+    
+    public function getfaq() 
+    {
+        return $this->getResource('Faq')->getFaq();    
+    }
 }

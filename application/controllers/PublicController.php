@@ -22,6 +22,12 @@ class PublicController extends Zend_Controller_Action
     {
     }
     
+    public function faqAction() 
+    {
+       $faq= $this->_catalogoModel->getfaq();
+       $this->view->assign(array('faq'=> $faq));
+    }
+    
     public function aziendeAction()
     {
         $az=$this->_catalogoModel->getAziende();
