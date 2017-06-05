@@ -2,8 +2,7 @@
 
 class PublicController extends Zend_Controller_Action
 {
-    protected $_catalogoModel;
-    protected $_utentiModel;
+    protected $_guestModel;
     protected $_formReg;
     protected $_formLog;
     protected $_authService;
@@ -11,8 +10,7 @@ class PublicController extends Zend_Controller_Action
     public function init()
     {
 	$this->_helper->layout->setLayout('main');
-        $this->_catalogoModel = new Application_Model_Catalogo();
-        $this->_utentiModel = new Application_Model_Utenti();
+        $this->_guestModel = new Application_Model_Guest();
         $this->_authService = new Application_Service_Auth();
         $this->view->userForm = $this->getUserForm();
         $this->view->loginForm = $this->getLoginForm();
@@ -22,22 +20,22 @@ class PublicController extends Zend_Controller_Action
     {
     }
     
-    public function faqAction() 
-    {
-       $faq= $this->_catalogoModel->getfaq();
-       $this->view->assign(array('faq'=> $faq));
-    }
-    
     public function aziendeAction()
     {
-        $az=$this->_catalogoModel->getAziende();
+        $az=$this->_guestModel->getAziende();
         $this->view->assign(array('aziende' => $az));
     }
     
     public function categorieAction()
     {
-        $cat=$this->_catalogoModel->getCategorie();
+        $cat=$this->_guestModel->getCategorie();
         $this->view->assign(array('categorie' => $cat));
+    }
+    
+    public function faqAction() 
+    { 
+        $faq= $this->_guestModel->getFaq(); 
+        $this->view->assign(array('faq'=> $faq));
     }
     
     public function viewstaticAction()
@@ -60,7 +58,7 @@ class PublicController extends Zend_Controller_Action
             return $this->render('logreg');
         }
         $values = $formReg->getValues();
-       	$this->_utentiModel->registraUser($values);
+       	$this->_guestModel->registraUser($values);
     }
     
     private function getLoginForm()
