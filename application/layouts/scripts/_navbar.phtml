@@ -1,5 +1,5 @@
     <!-- Nav -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar-default" role="navigation">
         <div class="container">
             <!-- Logo e toggle x mobile -->
             <div class="navbar-header">
@@ -30,9 +30,8 @@
                     <li>
                         <a href=" <?= $this->url(array(
                                     'controller' => 'public',
-                                    'action'     => 'viewstatic',
-                                    'staticPage' => 'faq'), 
-                                    'default',true); 
+                                    'action'     => 'faq'),
+                                    'default',true);
                                     ?>">FAQ</a>
                     </li>
                     <li>
@@ -87,7 +86,11 @@
                         
                             case 'staff':?>
                             <li>
-                                <a href="#">Strumenti Staff</a>
+                                <a href=href="<?= $this->url(array(
+                                    'controller' => 'staff',
+                                    'action'     => 'strumenti'), 
+                                    'default',true); 
+                                    ?>">Strumenti Staff</a>
                             </li>
                             <li>
                                 <a href="<?= $this->url(array(
@@ -119,9 +122,16 @@
                             <li>
                                 <a href="<?= $this->url(array(
                                         'controller' => 'public',
-                                        'action'     => 'logreg'), 
+                                        'action'     => 'login'), 
                                         'default',true); 
-                                        ?>">Login/Registrati</a>
+                                        ?>">Login</a>
+                            </li>
+                            <li>
+                                <a href="<?= $this->url(array(
+                                        'controller' => 'public',
+                                        'action'     => 'register'), 
+                                        'default',true); 
+                                        ?>">Registrati</a>
                             </li>
                         <?php
                             break;
