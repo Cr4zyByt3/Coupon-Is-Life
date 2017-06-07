@@ -8,12 +8,13 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
+        <?php foreach($this->coupon as $coupon) :?>
         <div class="item active">
-            <div class="fill" style="background-image:url('../../public/images/zymil.jpg');"></div>
+            <?php echo '<h2>'. $this->generalImg($this->Slider($coupon->inizio_validita,$coupon->immagine),'coupon/',array('class'=>'fill')). '</h2>'; ?>
             <div class="carousel-caption">
-                <h2>Offerta Zymil</h2>
             </div>
         </div>
+        <?php endforeach ?>
         <div class="item">
             <div class="fill" style="background-image:url('../../public/images/adidas.jpg');"></div>
             <div class="carousel-caption">

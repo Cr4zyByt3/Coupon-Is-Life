@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/views/scripts/public/aziende.phtml</file>
-            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/views/helpers/GeneralImg.php</file>
-            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/views/scripts/public/categorie.phtml</file>
-            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/views/scripts/public/faq.phtml</file>
+            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/models/resources/Coupon.php</file>
+            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/models/Guest.php</file>
+            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/views/helpers/Slider.php</file>
+            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/public/index.php</file>
+            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/controllers/PublicController.php</file>
+            <file>file:/C:/xampp/htdocs/zf_esempi/Coupon-Is-Life/application/views/scripts/public/index.phtml</file>
         </group>
     </open-files>
 </project-private>
