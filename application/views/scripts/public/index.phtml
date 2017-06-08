@@ -129,24 +129,13 @@
                     </p>
                 </div>
                 <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item">
-                        <a href="#" title="Fileni">Fileni</a>
+                    <?php for($j=0;$j<5;$j++) :?>
+                    <?php if(!empty($this->aziende[$j])){
+                    echo '<li class="list-group-item">';
+                       $azienda=$this->aziende[$j];
+                       echo'<a href="#" title="Fileni">'. $azienda->nome .'</a>';} ?>
                     </li>
-                    <li class="list-group-item">
-                        <a href="#" title="Baldi carni">Baldi carni</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" title="Uci Cinemas">Uci Cinemas</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" title="Coltorti">Coltorti</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" title="Jammin">Jammin</a>
-                    </li>
-                    <li class="list-group-item">
-                       <a href="#" title="Barchiesi sport">Barchiesi sport</a>
-                    </li>
+                    <?php endfor ?>        
                 </ul>
                 <div class="panel-footer">
                     <a href="<?= $this->url(array(
@@ -175,24 +164,13 @@
                     </p>
                 </div>
                 <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item">
-                        <a href="#" title="Fileni">Elettronica</a>
+                    <?php for($i=0;$i<5;$i++) :?>
+                    <?php if(!empty($this->categorie[$i])){
+                    echo '<li class="list-group-item">';
+                       $cat=$this->categorie[$i];
+                       echo'<a href="#" title="Fileni">'. $cat->nome .'</a>';} ?>
                     </li>
-                    <li class="list-group-item">
-                        <a href="#" title="Baldi carni">Per la casa</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" title="Uci Cinemas">Sport</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" title="Coltorti">Informatica</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" title="Hobby">Hobby</a>
-                    </li>
-                    <li class="list-group-item">
-                       <a href="#" title="Per la scuola">Per la scuola</a>
-                    </li>
+                    <?php endfor ?> 
                 </ul>
                 <div class="panel-footer">
                     <a class="btn btn-lg btn-block btn-primary">Vai alla pagina delle Categorie</a>
