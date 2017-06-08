@@ -210,13 +210,13 @@
             <!-- Wrapper for slides -->
 
            <div class="carousel-inner">
-             <?php foreach($this->coupon as $coupon) :?>
+             <?php foreach($this->coup as $coup) :?>
                <div id="oggetto" class="item">
             <script>
                 $('#oggetto').removeClass('item');
                 $('#oggetto').addClass('item active'); 
             </script>
-            <?php echo $this->generalImg($this->Slider($coupon->emissioni,$coupon->immagine),'coupon/',array('class'=>'fill')); ?>
+            <?php echo $this->generalImg($this->Slider($coup->emissioni,$coup->immagine),'coupon/',array('class'=>'fill')); ?>
              </div>
            <?php endforeach ?>
          </div>
