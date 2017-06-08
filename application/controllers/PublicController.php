@@ -18,8 +18,10 @@ class PublicController extends Zend_Controller_Action
     
     public function indexAction()
     {
-        $coup=$this->_guestModel->getCouponByInizioV();
-        $this->view->assign(array('coupon' => $coup));
+        $coupon=$this->_guestModel->getCouponByInizioV();
+        $cou=$this->_guestModel->getCouponByEmissioni();
+        $this->view->assign(array('coupon' => $coupon,
+                               'coup'=> $coup));
     }
     
     public function aziendeAction()

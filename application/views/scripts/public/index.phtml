@@ -9,24 +9,14 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <?php foreach($this->coupon as $coupon) :?>
-        <div class="item active">
-            <?php echo '<h2>'. $this->generalImg($this->Slider($coupon->inizio_validita,$coupon->immagine),'coupon/',array('class'=>'fill')). '</h2>'; ?>
-            <div class="carousel-caption">
-            </div>
+        <div id="oggetto" class="item">
+            <script>
+                $('#oggetto').removeClass('item');
+                $('#oggetto').addClass('item active'); 
+            </script>
+            <?php echo $this->generalImg($this->Slider($coupon->inizio_validita,$coupon->immagine),'coupon/',array('class'=>'fill')); ?>
         </div>
         <?php endforeach ?>
-        <div class="item">
-            <div class="fill" style="background-image:url('../../public/images/adidas.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Codice sconto 15% ADIDAS</h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('../../public/images/coop.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Stampa buono Coop da 5 euro</h2>
-            </div>
-        </div>
     </div>
 
     <!-- Controls -->
@@ -218,28 +208,19 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                <img src="../../public/images/nike.jpg" alt="nike" style="width: 1280px;height: 400px;">
-                    <div class="carousel-caption">
-                        <h2>Nike super offerta</h2>
-                    </div>
-                </div>
 
-                <div class="item">
-                    <img src="../../public/images/mediaworld.jpg" alt="mediaworld"  style="width: 1280px;height: 400px;">
-                    <div class="carousel-caption">
-                        <h2>Smartphone 50% da Mediaworld</h2>
-                    </div>
-                </div>
+           <div class="carousel-inner">
+             <?php foreach($this->coupon as $coupon) :?>
+               <div id="oggetto" class="item">
+            <script>
+                $('#oggetto').removeClass('item');
+                $('#oggetto').addClass('item active'); 
+            </script>
+            <?php echo $this->generalImg($this->Slider($coupon->emissioni,$coupon->immagine),'coupon/',array('class'=>'fill')); ?>
+             </div>
+           <?php endforeach ?>
+         </div>
 
-                <div class="item">
-                    <img src="../../public/images/zalando.jpg" alt="zalando" style="width: 1280px;height: 400px;">
-                    <div class="carousel-caption">
-                        <h2>Offerta Zalando</h2>
-                    </div>
-                </div>
-            </div>
 
             <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
