@@ -173,7 +173,11 @@
                     <?php endfor ?> 
                 </ul>
                 <div class="panel-footer">
-                    <a class="btn btn-lg btn-block btn-primary">Vai alla pagina delle Categorie</a>
+                    <a <a href="<?= $this->url(array(
+                                    'controller' => 'public',
+                                    'action'     => 'categorie'), 
+                                    'default',true); 
+                            ?>" class="btn btn-lg btn-block btn-primary">Vai alla pagina delle Categorie</a>
                 </div>
             </div>
         </div>
