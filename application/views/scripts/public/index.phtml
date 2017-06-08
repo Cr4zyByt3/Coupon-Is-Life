@@ -5,17 +5,21 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-
+    
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
+        <?php $count=0;?>
         <?php foreach($this->coupon as $coupon) :?>
-        <div id="oggetto" class="item">
-            <script>
-                $('#oggetto').removeClass('item');
-                $('#oggetto').addClass('item active'); 
-            </script>
-            <?php echo $this->generalImg($this->Slider($coupon->inizio_validita,$coupon->immagine),'coupon/',array('class'=>'fill')); ?>
-        </div>
+        <?php $variab=$this->Slider($coupon->inizio_validita,$coupon->immagine);
+            if($variab!==false && $count<3){
+            echo '<div id="oggetto" class="item">';
+            echo "<script>";
+            echo "$('#oggetto').removeClass('item');";
+            echo "$('#oggetto').addClass('item active');"; 
+            echo "</script>"; 
+            echo $this->generalImg($variab,'coupon/',array('class'=>'fill'));
+                 $count++;
+            echo '</div>'; } ?>
         <?php endforeach ?>
     </div>
 
@@ -209,17 +213,21 @@
 
             <!-- Wrapper for slides -->
 
-           <div class="carousel-inner">
-             <?php foreach($this->coup as $coup) :?>
-               <div id="oggetto2" class="item">
-                <script>
-                 $('#oggetto2').removeClass('item');
-                 $('#oggetto2').addClass('item active'); 
-                </script>
-               <?php echo $this->generalImg($this->Slider((int)$coup->emissioni,$coup->immagine),'coupon/',array('class'=>'miaclasse')); ?>
-             </div>
-           <?php endforeach ?>
-         </div>
+            <div class="carousel-inner">
+                <?php $conto=0;?>
+                <?php foreach($this->coup as $coup) :?>
+                <?php $var=$this->Slider((int)$coup->emissioni,$coup->immagine);
+                    if($var!==false && $conto<3){
+                    echo '<div id="oggetto2" class="item">';
+                    echo "<script>";
+                    echo "$('#oggetto2').removeClass('item');";
+                    echo "$('#oggetto2').addClass('item active');"; 
+                    echo "</script>"; 
+                    echo $this->generalImg($var,'coupon/',array('class'=>'miaclasse'));
+                         $conto++;
+                    echo '</div>'; } ?>
+                <?php endforeach ?>
+            </div>
 
 
             <!-- Left and right controls -->

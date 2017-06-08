@@ -1,13 +1,14 @@
 <?php
 class Zend_View_Helper_Slider extends Zend_View_Helper_Abstract
 {
+    private $percorso;
     private $oggi; 
     private $diff;
     
         public function slider($validità,$imageFile)
         {
             if(is_int($validità)===true){
-                $esatto=$imageFile;
+                $percorso=$imageFile;
             }else{
             
              $anno= substr($validità,0,4);
@@ -19,10 +20,13 @@ class Zend_View_Helper_Slider extends Zend_View_Helper_Abstract
              $oggi= getdate();
              if($anno<$oggi['year'] || $mese<$oggi['mon'] || $giorno<$oggi['mday'])
              {
-                $esatto=$imageFile;
+                $percorso=$imageFile;
+             }
+             else{
+                 $percorso=false;
              }
             }
-            return $esatto;
+            return $percorso;
             
         }
     
