@@ -211,12 +211,12 @@
 
            <div class="carousel-inner">
              <?php foreach($this->coup as $coup) :?>
-               <div id="oggetto" class="item">
-            <script>
-                $('#oggetto').removeClass('item');
-                $('#oggetto').addClass('item active'); 
-            </script>
-            <?php echo $this->generalImg($this->Slider($coup->emissioni,$coup->immagine),'coupon/',array('class'=>'fill')); ?>
+               <div id="oggetto2" class="item">
+                <script>
+                 $('#oggetto2').removeClass('item');
+                 $('#oggetto2').addClass('item active'); 
+                </script>
+               <?php echo $this->generalImg($this->Slider((int)$coup->emissioni,$coup->immagine),'coupon/',array('class'=>'miaclasse')); ?>
              </div>
            <?php endforeach ?>
          </div>

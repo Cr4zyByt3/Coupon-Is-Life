@@ -7,7 +7,7 @@ class Zend_View_Helper_Slider extends Zend_View_Helper_Abstract
         public function slider($validità,$imageFile)
         {
             if(is_int($validità)===true){
-                $esatto=$validità;
+                $esatto=$imageFile;
             }else{
             
              $anno= substr($validità,0,4);

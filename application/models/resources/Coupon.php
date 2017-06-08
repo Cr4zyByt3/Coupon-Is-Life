@@ -23,7 +23,7 @@ class Application_Resource_Coupon extends Zend_Db_Table_Abstract
     }
     public function getCouponByEmissioni()
     {
-        $select = $this->select()->order('emissioni');
+        $select = $this->select()->order('emissioni DESC');
         return $this ->fetchAll($select);
     }
     
