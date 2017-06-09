@@ -1,0 +1,83 @@
+<div>
+    <br><br>
+    <ul>
+        <fieldset>
+            <legend>Gestione aziende</legend>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'formazienda',
+                                    ), 
+                                    'default',true); 
+            ?>">Inserisci azienda</a></li>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'aziende',
+                                    ), 
+                                    'default',true); 
+                        ?>"> Modifica/cancella azienda</a></li>
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Gestione categorie di prodotti</legend>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'formcategoria',
+                                    ), 
+                                    'default',true); 
+                        ?>">Inserisci nuova categoria</a></li>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'categorie',
+                                    ), 
+                                    'default',true); 
+                        ?>">Modifica/cancella categoria</a></li>  
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Gestione utenti</legend>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'users',
+                                    ), 
+                                    'default',true); 
+                        ?>">Modifica/cancella utente</a></li>
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Gestione staff</legend>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'formstaff',
+                                    ), 
+                                    'default',true); 
+                        ?>">Inserisci membro staff</a></li>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'staff',
+                                    ), 
+                                    'default',true); 
+                        ?>">Modifica/cancella membro staff</a></li>
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Gestione promozioni</legend>
+            <li>Visualizza statistiche relative ai coupon</li>
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Gestione FAQ</legend>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'formfaq',
+                                    ), 
+                                    'default',true); 
+                        ?>">Aggiungi domanda frequente</a></li>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'faq',
+                                    ), 
+                                    'default',true); 
+                        ?>">Modifica/cancella domanda frequente</a></li>
+        </fieldset>
+    </ul>
+</div>

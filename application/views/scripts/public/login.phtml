@@ -1,0 +1,37 @@
+<?php $this->headScript()
+    //->appendFile('https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
+    ->appendFile($this->baseUrl('js/functions.js'))
+    ->captureStart() ?>
+
+<script>
+$(function()
+{
+    var actionUrl='<?= $this->url(array('controller' => 'public', 'action' => 'validatelogin',), 'default'); ?>';
+    var formName='<?= $this->loginForm->getName() ?>';
+    $(":input").on('blur', function(event) {
+        var formElementId = $(this).attr('id');
+        doValidation(formElementId, actionUrl, formName);
+    });
+});
+</script>
+
+<br/>
+<br/>
+
+<div class="container" style="text-align:center;">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1>Login</h1>
+                </div>
+                <div class="panel-body">
+                    <div role="form">
+                           <?php echo $this->loginForm; ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

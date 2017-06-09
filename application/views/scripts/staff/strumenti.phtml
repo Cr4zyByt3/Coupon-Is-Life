@@ -1,0 +1,21 @@
+<div>
+    <br><br>
+    <ul>
+        <fieldset>
+            <legend>Gestione profilo</legend>
+            <li>Gestisci informazioni profilo</li>
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Gestione promozioni</legend>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'staff',
+                                    'action'     => 'formcoupon',
+                                    ), 
+                                    'default',true); 
+            ?>">Inserisci coupon</a></li>
+            <li><a href="#">Modifica/cancella coupon</a></li>
+        </fieldset>
+    </ul>
+</div>
+
