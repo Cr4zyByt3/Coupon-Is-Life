@@ -21,6 +21,11 @@ class Application_Model_Guest extends App_Model_Abstract
         return $this->getResource('Aziende')->getAziende();
     }
     
+    public function getAziendaById($id)
+    {
+        return $this->getResource('Aziende')->getAziendaById($id);
+    }
+    
     public function getAziendeByCoupon_Emessi()
     {
         return $this->getResource('Aziende')->getAziendeByCoupon_Emessi();

@@ -34,6 +34,13 @@ class PublicController extends Zend_Controller_Action
         $this->view->assign(array('aziende' => $az));
     }
     
+     public function aziendaAction()
+    {
+        $id= $this->getParam('selAzienda');
+        $azienda=$this->_guestModel->getAziendaById($id);
+        $this->view->assign(array('azienda' => $azienda));
+    }
+    
     public function categorieAction()
     {
         $cat=$this->_guestModel->getCategorie();

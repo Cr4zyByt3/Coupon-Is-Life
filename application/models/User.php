@@ -1,9 +1,9 @@
 <?php
 
-class Application_Model_User extends App_Model_Abstract
+class Application_Model_User extends Application_Model_Guest
 { 
 
-    public function __construct()
+    public function __super()
     {
     }
     
