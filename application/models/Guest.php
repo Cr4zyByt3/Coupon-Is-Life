@@ -11,6 +11,11 @@ class Application_Model_Guest extends App_Model_Abstract
         return $this->getResource('Categorie')->getCategorie();
     }
     
+    public function getCategoriaById($id)
+    {
+        return $this->getResource('Categorie')->getCategoriaById($id);
+    }
+    
     public function getCategorieByTot_Emissioni()
     {
         return $this->getResource('Categorie')->getAziendeByTot_Emissioni();
