@@ -12,14 +12,18 @@
         <?php foreach($this->coupon as $coupon) :?>
         <?php $variab=$this->Slider($coupon->inizio_validita,$coupon->immagine);
             if($variab!==false && $count<3){
-            echo '<div id="oggetto" class="item">';
+            echo '<a id="oggetto" class="item" href='.$this->url(array(
+                                    'controller' => 'public',
+                                    'action'     => 'coupon',
+                                    'selCoupon' => $coupon->id), 
+                                    'default',true).'>';
             echo "<script>";
             echo "$('#oggetto').removeClass('item');";
             echo "$('#oggetto').addClass('item active');"; 
             echo "</script>"; 
             echo $this->generalImg($variab,'coupon/',array('class'=>'fill'));
                  $count++;
-            echo '</div>'; } ?>
+            echo '</a>'; } ?>
         <?php endforeach ?>
     </div>
 
@@ -131,10 +135,15 @@
                 <ul class="list-group list-group-flush text-center">
                     <?php for($j=0;$j<5;$j++) :?>
                     <?php if(!empty($this->aziende[$j])){
-                    echo '<li class="list-group-item">';
-                       $azienda=$this->aziende[$j];
-                       echo'<a href="#" title="Fileni">'. $azienda->nome .'</a>';} ?>
-                    </li>
+                        echo '<li class="list-group-item">';
+                        $azienda=$this->aziende[$j];
+                        echo'<a href='.$this->url(array(
+                                    'controller' => 'public',
+                                    'action'     => 'azienda',
+                                    'selAzienda' => $azienda->id), 
+                                    'default',true). 
+                             '>'. $azienda->nome .'</a>';}
+                        echo '</li>'; ?>
                     <?php endfor ?>        
                 </ul>
                 <div class="panel-footer">
@@ -166,10 +175,15 @@
                 <ul class="list-group list-group-flush text-center">
                     <?php for($i=0;$i<5;$i++) :?>
                     <?php if(!empty($this->categorie[$i])){
-                    echo '<li class="list-group-item">';
-                       $cat=$this->categorie[$i];
-                       echo'<a href="#" title="Fileni">'. $cat->nome .'</a>';} ?>
-                    </li>
+                        echo '<li class="list-group-item">';
+                        $cat=$this->categorie[$i];
+                        echo'<a href='.$this->url(array(
+                                    'controller' => 'public',
+                                    'action'     => 'categoria',
+                                    'selAzienda' => $cat->id), 
+                                    'default',true)
+                            .'>'. $cat->nome .'</a>';}
+                        echo '</li>'; ?>
                     <?php endfor ?> 
                 </ul>
                 <div class="panel-footer">
@@ -200,14 +214,18 @@
                 <?php foreach($this->coup as $coup) :?>
                 <?php $var=$this->Slider((int)$coup->emissioni,$coup->immagine);
                     if($var!==false && $conto<3){
-                    echo '<div id="oggetto2" class="item">';
+                    echo '<a id="oggetto2" class="item" href='.$this->url(array(
+                                    'controller' => 'public',
+                                    'action'     => 'coupon',
+                                    'selCoupon' => $coup->id), 
+                                    'default',true).'>';
                     echo "<script>";
                     echo "$('#oggetto2').removeClass('item');";
                     echo "$('#oggetto2').addClass('item active');"; 
                     echo "</script>"; 
                     echo $this->generalImg($var,'coupon/',array('class'=>'miaclasse'));
                          $conto++;
-                    echo '</div>'; } ?>
+                    echo '</a>'; } ?>
                 <?php endforeach ?>
             </div>
 
