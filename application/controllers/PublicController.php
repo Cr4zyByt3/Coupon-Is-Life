@@ -54,6 +54,13 @@ class PublicController extends Zend_Controller_Action
         $this->view->assign(array('categorie' => $cat));
     }
     
+    public function couponAction()
+    {
+        $id= $this->getParam('selCoupon');
+        $coupon=$this->_guestModel->getCouponById($id);
+        $this->view->assign(array('coupon' => $coupon));
+    }
+    
     public function faqAction() 
     { 
         $faq= $this->_guestModel->getFaq(); 

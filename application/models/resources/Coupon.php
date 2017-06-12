@@ -16,6 +16,10 @@ class Application_Resource_Coupon extends Zend_Db_Table_Abstract
         return $this ->fetchAll($select);
     }
     
+    public function getCouponById($id) {
+        return $this->find($id)->current(); 
+    }
+    
     public function getCouponByInizioV()
     {
         $select = $this->select()->order('inizio_validita DESC');

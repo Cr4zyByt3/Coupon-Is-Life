@@ -1,19 +1,15 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-  <div class="container">
-    <h1>Pagina della Categoria</h1>
-    <p>Breve descrizione della categoria
-    </p>
-  </div>
+    <?php $cat=$this->categoria ?>
+    <?php echo $this->generalImg($cat->immagine,'categorie/' ,array('class' => ''));?>
 </div>
 
 <div class="container">
   <!-- Example row of columns -->
     <div class="row">
-        <?php $cat=$this->categoria ?>
             <div class="col-md-12">
                 <?php echo '<h2>' . $cat->nome . '</h2>';
-                echo $this->generalImg($cat->immagine,'aziende/' ,array('class' => 'imagefrm'));
+                echo $this->generalImg($cat->immagine,'categorie/' ,array('class' => 'imagefrm'));
                 echo '<p>' . $cat->descrizione . '</p>'; ?>
                 <p><a class="btn btn-default" href='this' role="button">Mostra i coupon dell'azienda &raquo;</a></p> 
             </div>
