@@ -1,9 +1,7 @@
 <?php
 class Zend_View_Helper_Slider extends Zend_View_Helper_Abstract
 {
-    private $percorso;
     private $oggi; 
-    private $diff;
     
         public function slider($validità,$imageFile)
         {
@@ -17,8 +15,8 @@ class Zend_View_Helper_Slider extends Zend_View_Helper_Abstract
              $mese=(int)$mese;
              $giorno= substr($validità,8,2);
              $giorno=(int)$giorno;
-             $oggi= getdate();
-             if($anno<$oggi['year'] || $mese<$oggi['mon'] || $giorno<$oggi['mday'])
+             $this->oggi= getdate();
+             if(($anno<$this->oggi['year']) || ($anno===$this->oggi['year'] && $mese<=$this->oggi['mon'] || $giorno<=$this->oggi['mday']))
              {
                 $percorso=$imageFile;
              }

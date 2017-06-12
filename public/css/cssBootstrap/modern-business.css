@@ -23,9 +23,24 @@ body {
     opacity: 0.8;
 }
 
+.img-circle{
+    
+   
+    height:60%;
+    width:60%;
+    margin-left: 90px;
+}
+
 .imagefrm {
     width:300px; 
     height:150px;
+}
+div.jumbo{
+    padding: 150px 0;
+    margin-top: -1px;
+    background-color: #87b8dd;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
 }
 
 .miaclasse{

@@ -1,17 +1,22 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <?php $cat=$this->categoria ?>
-    <?php echo $this->generalImg($cat->immagine,'categorie/' ,array('class' => ''));?>
+<div class="jumbo">
+    <div class="col-lg-12">
+    <?php $cat=$this->categoria;
+          echo '<div class="col-md-5">'.$this->generalImg($cat->immagine,'categorie/' ,array('class' => 'img-circle')).'</div>';
+          echo '<div class="col-md-7"> '
+                .'<h2>' . $cat->nome . '</h2>'.
+                 '<p>' . $cat->descrizione . '</p>'.'</div>';?>   
+    </div>
 </div>
 
 <div class="container">
   <!-- Example row of columns -->
     <div class="row">
             <div class="col-md-12">
-                <?php echo '<h2>' . $cat->nome . '</h2>';
-                echo $this->generalImg($cat->immagine,'categorie/' ,array('class' => 'imagefrm'));
-                echo '<p>' . $cat->descrizione . '</p>'; ?>
-                <p><a class="btn btn-default" href='this' role="button">Mostra i coupon dell'azienda &raquo;</a></p> 
+                <p>tutti i coupon della categoria </p>
+                 <?php foreach ($this->coupon as $coupon) {
+                    echo $this->generalImg($coupon->immagine,'coupon/' ,array('class' => 'imagefrm'));
+                }?>
             </div>
 	</div>
   <hr>

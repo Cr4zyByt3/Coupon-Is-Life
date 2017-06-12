@@ -38,14 +38,18 @@ class PublicController extends Zend_Controller_Action
     {
         $id= $this->getParam('selAzienda');
         $azienda=$this->_guestModel->getAziendaById($id);
-        $this->view->assign(array('azienda' => $azienda));
+        $coupon= $this->_guestModel->getCouponByAzienda($id);
+        $this->view->assign(array('azienda' => $azienda,
+                                  'coupon' => $coupon));
     }
     
      public function categoriaAction()
     {
         $id= $this->getParam('selCat');
         $categoria=$this->_guestModel->getCategoriaById($id);
-        $this->view->assign(array('categoria' => $categoria));
+        $coupon= $this->_guestModel->getCouponByCategoria($id);
+        $this->view->assign(array('categoria' => $categoria,
+                                  'coupon'=>$coupon));
     }
     
     public function categorieAction()
