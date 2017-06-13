@@ -16,6 +16,10 @@ class Application_Resource_Coupon extends Zend_Db_Table_Abstract
         return $this ->fetchAll($select);
     }
     
+    public function getCouponById($id) {
+        return $this->find($id)->current(); 
+    }
+    
     public function getCouponByInizioV()
     {
         $select = $this->select()->order('inizio_validita DESC');
@@ -25,6 +29,18 @@ class Application_Resource_Coupon extends Zend_Db_Table_Abstract
     {
         $select = $this->select()->order('emissioni DESC');
         return $this ->fetchAll($select);
+    }
+    
+    public function getCouponByAzienda($id) 
+    {
+       $select = $this->select()->where('idAzienda = ?',$id);
+        return $this->fetchAll($select);  
+    }
+    
+    public function getCouponByCategoria($id) 
+    {
+       $select = $this->select()->where('idCategoria = ?',$id);
+        return $this->fetchAll($select);  
     }
     
     public function registraCoupon($info)

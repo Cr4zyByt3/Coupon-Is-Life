@@ -49,7 +49,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap	// extends definisc
     			'host'     => $HOST,
     			'username' => $USER,
     			'password' => $PASSWORD,
-    			'dbname'   => $DB));  
+    			'dbname'   => $DB));
+        $db->getConnection()->exec("SET NAMES utf8");
 	Zend_Db_Table_Abstract::setDefaultAdapter($db);
     }
 }

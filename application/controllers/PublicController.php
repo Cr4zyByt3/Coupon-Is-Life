@@ -34,10 +34,35 @@ class PublicController extends Zend_Controller_Action
         $this->view->assign(array('aziende' => $az));
     }
     
+     public function aziendaAction()
+    {
+        $id= $this->getParam('selAzienda');
+        $azienda=$this->_guestModel->getAziendaById($id);
+        $coupon= $this->_guestModel->getCouponByAzienda($id);
+        $this->view->assign(array('azienda' => $azienda,
+                                  'coupon' => $coupon));
+    }
+    
+     public function categoriaAction()
+    {
+        $id= $this->getParam('selCat');
+        $categoria=$this->_guestModel->getCategoriaById($id);
+        $coupon= $this->_guestModel->getCouponByCategoria($id);
+        $this->view->assign(array('categoria' => $categoria,
+                                  'coupon'=>$coupon));
+    }
+    
     public function categorieAction()
     {
         $cat=$this->_guestModel->getCategorie();
         $this->view->assign(array('categorie' => $cat));
+    }
+    
+    public function couponAction()
+    {
+        $id= $this->getParam('selCoupon');
+        $coupon=$this->_guestModel->getCouponById($id);
+        $this->view->assign(array('coupon' => $coupon));
     }
     
     public function faqAction() 

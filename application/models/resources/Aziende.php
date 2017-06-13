@@ -22,6 +22,10 @@ class Application_Resource_Aziende extends Zend_Db_Table_Abstract
         return $this ->fetchAll($select);        
     }
     
+    public function getAziendaById($id) {
+        return $this->find($id)->current(); 
+    }
+    
     public function registraAzienda($info)
     {
         return $this ->insert($info);
