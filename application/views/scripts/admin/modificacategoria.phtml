@@ -1,0 +1,36 @@
+<div class="container">
+    <br>
+    <h3><b>Modifica avvenuta con successo!</b></h3>
+    <br>
+    <table class="table table-condensed">
+            <tr><th style="text-align:center;">ID</th><th>Nome</th><th>Descrizione</th><th>Immagine</th>
+            <?php
+                $modificata = $this->modificata;
+                if($modificata->immagine==null){
+                        $immagine = 'NON DISPONIBILE';
+                    }
+                    else{
+                        $immagine = $modificata->immagine;
+                    }
+                echo '<tr><td style="text-align:center;">' . $modificata->id . '</td>'
+                        . '<td>' . $modificata->nome . '</td>'
+                        . '<td>' . $modificata->descrizione . '</td>'
+                        . '<td>' . $immagine . '</td>';
+            ?>
+    </table>
+    <br>
+    <a class="btn btn-primary" href=" <?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'categorie',
+                                    ), 
+                                    'default',true); 
+                                    ?>">Modifica/cancella altre categorie</a>
+    <a class="btn btn-primary" href=" <?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'index',
+                                    ), 
+                                    'default',true); 
+                                    ?>">Torna alla pagina di amministrazione</a>
+</div>
+
+

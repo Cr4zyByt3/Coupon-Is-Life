@@ -1,0 +1,41 @@
+<!-- Page Content -->
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">FAQ
+                <small>Domande frequenti</small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-group" id="accordion">
+                <?php foreach ($this->faq as $faq) :?>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                               href="#<?php echo $faq->id ?>"><?php echo $faq->domanda ?></a>
+                        </h4>
+                    </div>
+                    <div id= "<?php echo $faq->id ?>" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <?php echo $faq->risposta ?>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach ?>
+                <!-- /.panel -->
+            </div>
+            <!-- /.panel-group -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <hr>
+</div>
+<!-- /.container -->

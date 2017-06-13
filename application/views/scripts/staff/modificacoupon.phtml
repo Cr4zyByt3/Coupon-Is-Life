@@ -1,0 +1,40 @@
+<div class="container">
+    <br>
+    <h3><b>Modifica avvenuta con successo!</b></h3>
+    <br>
+    <table class="table table-condensed">
+            <tr><th>ID</th><th>Nome</th><th>Descrizione</th><th>Ragione sociale</th><th>Localizzazione</th>
+            <th>Tipologia</th><th>Immagine</th>
+            <?php
+                $modificato = $this->modificato;
+                if($modificato->immagine==null){
+                        $immagine = 'NON DISPONIBILE';
+                    }
+                    else{
+                        $immagine = $modificato->immagine;
+                    }
+                echo '<tr><td>' . $modificato->id . '</td>'
+                        . '<td>' . $modificato->nome . '</td>'
+                        . '<td>' . $modificato->descrizione . '</td>'
+                        . '<td>' . $modificato->ragione_sociale . '</td>'
+                        . '<td>' . $modificato->localizzazione . '</td>'
+                        . '<td>' . $modificato->tipologia . '</td>'
+                        . '<td>' . $immagine . '</td>';
+            ?>
+    </table>
+    <br>
+    <a class="btn btn-primary" href=" <?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'aziende',
+                                    ), 
+                                    'default',true); 
+                                    ?>">Modifica/cancella altre promozioni</a>
+    <a class="btn btn-primary" href=" <?= $this->url(array(
+                                    'controller' => 'staff',
+                                    'action'     => 'index',
+                                    ), 
+                                    'default',true); 
+                                    ?>">Torna alla pagina degli strumenti staff</a>
+</div>
+
+

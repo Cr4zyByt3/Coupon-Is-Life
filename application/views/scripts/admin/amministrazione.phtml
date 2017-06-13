@@ -1,0 +1,96 @@
+<div class="container">
+    <br><br>
+    <div class="row">
+        <div class="col-md-6">
+            <ul style="list-style-type:none">
+                <h2>Gestione aziende</h2>
+                <li><a href="<?= $this->url(array(
+                                        'controller' => 'admin',
+                                        'action'     => 'formazienda',
+                                        ), 
+                                        'default',true); 
+                ?>"><h4>Inserisci azienda</h4></a></li>
+                <li><a href="<?= $this->url(array(
+                                        'controller' => 'admin',
+                                        'action'     => 'aziende',
+                                        ), 
+                                        'default',true); 
+                            ?>"><h4>Modifica/cancella azienda</h4></a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul style="list-style-type:none">
+            <h2>Gestione utenti</h2>
+            <li><a href="<?= $this->url(array(
+                                    'controller' => 'admin',
+                                    'action'     => 'users',
+                                    ), 
+                                    'default',true); 
+                        ?>"><h4>Cancella utente</h4></a></li>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <ul style="list-style-type:none">
+                <h2>Gestione categorie di prodotti</h2>
+                <li><a href="<?= $this->url(array(
+                                        'controller' => 'admin',
+                                        'action'     => 'formcategoria',
+                                        ), 
+                                        'default',true); 
+                            ?>"><h4>Inserisci nuova categoria</h4></a></li>
+                <li><a href="<?= $this->url(array(
+                                        'controller' => 'admin',
+                                        'action'     => 'categorie',
+                                        ), 
+                                        'default',true); 
+                            ?>"><h4>Modifica/cancella categoria</h4></a></li>  
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul style="list-style-type:none">
+                <h2>Gestione staff</h2>
+                <li><a href="<?= $this->url(array(
+                                        'controller' => 'admin',
+                                        'action'     => 'formstaff',
+                                        ), 
+                                        'default',true); 
+                            ?>"><h4>Inserisci membro staff</h4></a></li>
+                <li><a href="<?= $this->url(array(
+                                        'controller' => 'admin',
+                                        'action'     => 'staff',
+                                        ), 
+                                        'default',true); 
+                            ?>"><h4>Modifica/cancella membro staff</h4></a></li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <ul style="list-style-type:none">
+                <h2>Gestione promozioni</h2>
+                <li><h4>Visualizza statistiche relative ai coupon</h4></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul style="list-style-type:none">
+                <h2>Gestione FAQ</h2>
+                <li><a href="<?= $this->url(array(
+                                        'controller' => 'admin',
+                                        'action'     => 'formfaq',
+                                        ), 
+                                        'default',true); 
+                            ?>"><h4>Inserisci domanda frequente</h4></a></li>
+                <li><a href="<?= $this->url(array(
+                                        'controller' => 'admin',
+                                        'action'     => 'faq',
+                                        ), 
+                                        'default',true); 
+                            ?>"><h4>Modifica/cancella domanda frequente</h4></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br><br>
