@@ -11,6 +11,9 @@ class Application_Form_Public_User extends Zend_Form
         // La seguente istruzione permette di usare i filtri custom
         $this->addElementPrefixPath('Filter', APPLICATION_PATH . '/../library/Filter', 'filter');
         
+         // La seguente istruzione permette di usare i validator custom
+        $this->addElementPrefixPath('Validator', APPLICATION_PATH . '/../library/Validator', 'validate');
+        
         /* validatori per controllare se lo username e l'email sono già usati
          * da qualcun'altro
          */
@@ -48,6 +51,8 @@ class Application_Form_Public_User extends Zend_Form
             'filters' => array('StringTrim'),
             'validators' => array('Date')
             ));
+        
+        $this->getElement('data_di_nascita')->addValidator(new Validator_DataReg());
         
         $this->addElement('radio', 'genere', array(
             'MultiOptions' => array('M' => 'Maschio', 'F' => 'Femmina'),

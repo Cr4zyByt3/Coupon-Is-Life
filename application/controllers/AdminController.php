@@ -350,7 +350,7 @@ class AdminController extends Zend_Controller_Action {
             $this->_adminModel->delUtente($idModifica);
             return $this->render('cancellastaff');
         }
-       	$this->_adminModel->modificaUtente($values, $idModifica);
+       	$this->_adminModel->modificaDati($values, $idModifica);
         $modificato=$this->_adminModel->getUtenteById($idModifica);
         $this->view->assign(array('modificato'=>$modificato));   
     }

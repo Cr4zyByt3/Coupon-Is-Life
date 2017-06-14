@@ -18,9 +18,9 @@ class Application_Model_Admin extends App_Model_Abstract
     	return $this->getResource('Utenti')->getUtenteByUsername($username);
     }
     
-    public function modificaUtente($info, $id)
+    public function modificaDati($info, $id)
     {
-    	return $this->getResource('Utenti')->modificaUtente($info, $id);
+    	return $this->getResource('Utenti')->modificaDati($info, $id);
     }
     
     public function delUtente($id)

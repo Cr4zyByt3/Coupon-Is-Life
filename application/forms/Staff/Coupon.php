@@ -11,6 +11,9 @@ class Application_Form_Staff_Coupon extends Zend_Form
         $this->setAction('');
         $this->_staffModel = new Application_Model_Staff();
         
+         // La seguente istruzione permette di usare i validator custom
+        $this->addElementPrefixPath('Validator', APPLICATION_PATH . '/../library/Validator', 'validate');
+        
         $this->addElement('text', 'nome', array(
             'label' => 'Nome',
             'required' => 'true',
@@ -58,6 +61,8 @@ class Application_Form_Staff_Coupon extends Zend_Form
             'validators' => array('Date')
             ));
         
+        $this->getElement('inizio_validita')->addValidator(new Validator_DataScad());
+        
         $this->addElement('text', 'scadenza', array(
             'label' => 'Data di scadenza',
             'required' => 'true',
@@ -65,6 +70,8 @@ class Application_Form_Staff_Coupon extends Zend_Form
             'filters' => array('StringTrim'),
             'validators' => array('Date')
             ));
+        
+        $this->getElement('scadenza')->addValidator(new Validator_DataScad());
         
         $this->addElement('text', 'luogo_di_fruizione', array(
             'label' => 'Luogo di fruizione',
