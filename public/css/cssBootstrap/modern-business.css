@@ -111,6 +111,14 @@ header.carousel .fill {
     font-style: italic;
 }
 
+/* Forms */
+
+.errors {
+	margin-top: 10px;
+        color: #f93d00;
+        text-align: center;
+}
+
 /* Footer Styles */
 
 footer {
