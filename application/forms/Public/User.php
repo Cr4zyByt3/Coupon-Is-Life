@@ -28,7 +28,6 @@ class Application_Form_Public_User extends App_Form_Abstract
         $this->addElement('text', 'nome', array(
             'label' => 'Nome',
             'required' => 'true',
-            'autofocus' => 'true',
             'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(
@@ -125,6 +124,13 @@ class Application_Form_Public_User extends App_Form_Abstract
         $this->addElement('submit', 'add', array(
             'label' => 'Registrati',
             'class' => 'btn btn-primary'));
+        
+        $this->setDecorators(array(
+            'FormElements',
+            array('HtmlTag', array('tag' => 'div', 'class' => 'zend_form')),
+        	array('Description', array('placement' => 'prepend', 'class' => 'formerror')),
+            'Form'
+        ));
     }
 
 }

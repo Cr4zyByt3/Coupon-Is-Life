@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Staff_Password extends Zend_Form
+class Application_Form_Staff_Password extends App_Form_Abstract
 {
     public function init() {
         
@@ -11,6 +11,7 @@ class Application_Form_Staff_Password extends Zend_Form
         $this->addElement('password', 'old_password', array(
             'label' => 'Vecchia password',
             'required' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(array(
                 'StringLength', true, array(6,25)))));
@@ -18,6 +19,7 @@ class Application_Form_Staff_Password extends Zend_Form
         $this->addElement('password', 'password', array(
             'label' => 'Nuova password',
             'required' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(array(
                 'StringLength', true, array(6,25)))));
@@ -25,13 +27,22 @@ class Application_Form_Staff_Password extends Zend_Form
         $this->addElement('password', 'verificapassword', array(
                 'label'      => 'Conferma password',
                 'required'   => true,
+                'decorators' => $this->elementDecorators,
                 'validators' => array(
                     array('Identical', false, array('token' => 'password'))
                     )));
         
         $this->addElement('submit', 'add', array(
             'label' => 'Cambia password',
+            'decorators' => $this->buttonDecorators,
             'class' => 'btn btn-primary'));
+        
+        $this->setDecorators(array(
+            'FormElements',
+            array('HtmlTag', array('tag' => 'div', 'class' => 'zend_form')),
+        	array('Description', array('placement' => 'prepend', 'class' => 'formerror')),
+            'Form'
+        ));
     }
 
 }

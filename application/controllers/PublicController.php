@@ -110,6 +110,7 @@ class PublicController extends Zend_Controller_Action
         }
 	$formReg=$this->_formReg;
         if (!$formReg->isValid($_POST)) {
+            $formReg->setDescription('Attention: some data are incorrect.');
             return $this->render('register');
         }
         $values = array(

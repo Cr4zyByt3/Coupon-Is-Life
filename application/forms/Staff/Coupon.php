@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Staff_Coupon extends Zend_Form
+class Application_Form_Staff_Coupon extends App_Form_Abstract
 {
     protected $_staffModel;
     
@@ -18,6 +18,7 @@ class Application_Form_Staff_Coupon extends Zend_Form
             'label' => 'Nome',
             'required' => 'true',
             'autofocus' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim')
             ));
         
@@ -27,6 +28,7 @@ class Application_Form_Staff_Coupon extends Zend_Form
             'filters' => array('StringTrim'),
             'required' => true,
             'autofocus'  => true,
+            'decorators' => $this->elementDecorators,
             'placeholder' => 'Inserisci una descrizione della promozione',
             'validators' => array(array('StringLength',true, array(1,1000)))
         ));
@@ -39,6 +41,7 @@ class Application_Form_Staff_Coupon extends Zend_Form
         $this->addElement('select', 'idCategoria', array(
             'label' => 'Categoria',
             'required' => true,
+            'decorators' => $this->elementDecorators,
             'multiOptions' => $categorie
             ));
         
@@ -50,6 +53,7 @@ class Application_Form_Staff_Coupon extends Zend_Form
         $this->addElement('select', 'idAzienda', array(
             'label' => 'Azienda emittente',
             'required' => true,
+            'decorators' => $this->elementDecorators,
             'multiOptions' => $aziende
             ));
         
@@ -57,6 +61,7 @@ class Application_Form_Staff_Coupon extends Zend_Form
             'label' => 'Data inizio validità',
             'required' => 'true',
             'placeholder' => 'aaaa-mm-gg',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array('Date')
             ));
@@ -67,6 +72,7 @@ class Application_Form_Staff_Coupon extends Zend_Form
             'label' => 'Data di scadenza',
             'required' => 'true',
             'placeholder' => 'aaaa-mm-gg',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array('Date')
             ));
@@ -76,6 +82,7 @@ class Application_Form_Staff_Coupon extends Zend_Form
         $this->addElement('text', 'luogo_di_fruizione', array(
             'label' => 'Luogo di fruizione',
             'required' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace'=>true))
@@ -95,7 +102,15 @@ class Application_Form_Staff_Coupon extends Zend_Form
         
         $this->addElement('submit', 'modifica', array(
             'label' => 'Aggiungi promozione',
-            'class' => 'btn btn-primary'));
+            'class' => 'btn btn-primary',
+            'decorators' => $this->buttonDecorators));
+        
+         $this->setDecorators(array(
+            'FormElements',
+            array('HtmlTag', array('tag' => 'div', 'class' => 'zend_form')),
+        	array('Description', array('placement' => 'prepend', 'class' => 'formerror')),
+            'Form'
+        ));
     }
 
 }
