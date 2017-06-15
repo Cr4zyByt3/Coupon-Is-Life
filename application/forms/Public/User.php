@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Public_User extends Zend_Form
+class Application_Form_Public_User extends App_Form_Abstract
 {
     public function init() {
         
@@ -23,12 +23,13 @@ class Application_Form_Public_User extends Zend_Form
                     'table' => 'utenti',
                     'field' => 'username'
                     ));
-        $esiste->setMessage('Username già esistente');
+        $esiste->setMessage('Username already exists');
         
         $this->addElement('text', 'nome', array(
             'label' => 'Nome',
             'required' => 'true',
             'autofocus' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace'=>true)))
@@ -38,6 +39,7 @@ class Application_Form_Public_User extends Zend_Form
         $this->addElement('text', 'cognome', array(
             'label' => 'Cognome',
             'required' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace'=>true)))
@@ -48,6 +50,7 @@ class Application_Form_Public_User extends Zend_Form
             'label' => 'Data di nascita',
             'required' => 'true',
             'placeholder' => 'aaaa-mm-gg',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array('Date')
             ));
@@ -57,11 +60,13 @@ class Application_Form_Public_User extends Zend_Form
         $this->addElement('radio', 'genere', array(
             'MultiOptions' => array('M' => 'Maschio', 'F' => 'Femmina'),
             'value' => 'M',
+            'decorators' => $this->elementDecorators,
             'required' => 'true'));
         
         $this->addElement('text', 'provincia', array(
             'label' => 'Provincia',
             'required' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace'=>true)))
@@ -70,6 +75,7 @@ class Application_Form_Public_User extends Zend_Form
         $this->addElement('text', 'citta', array(
             'label' => 'Comune',
             'required' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace'=>true)))
@@ -80,6 +86,7 @@ class Application_Form_Public_User extends Zend_Form
             'label' => 'Numero di telefono',
             'placeholder' => '(facoltativo)',
             'value' => null,
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array(array(
                 'StringLength', true, array(9,10)),
@@ -88,12 +95,14 @@ class Application_Form_Public_User extends Zend_Form
         $this->addElement('text', 'email', array(
             'label' => 'Indirizzo e-mail',
             'required' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim'),
             'validators' => array('EmailAddress')));
         
         $this->addElement('text', 'username', array(
             'label' => 'Scegli un nome utente',
             'required' => 'true',
+            'decorators' => $this->elementDecorators,
             'filters' => array('StringTrim')));
         $this->getElement('username')->addValidator($esiste);
         
@@ -101,12 +110,14 @@ class Application_Form_Public_User extends Zend_Form
             'label' => 'Scegli una password',
             'required' => 'true',
             'filters' => array('StringTrim'),
+            'decorators' => $this->elementDecorators,
             'validators' => array(array(
                 'StringLength', true, array(6,25)))));
         
         $this->addElement('password', 'verificapassword', array(
                 'label'      => 'Conferma password',
                 'required'   => true,
+                'decorators' => $this->elementDecorators,
                 'validators' => array(
                     array('Identical', false, array('token' => 'password'))
                     )));

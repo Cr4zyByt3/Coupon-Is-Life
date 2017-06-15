@@ -18,11 +18,11 @@ function getErrorHtml(formErrors) {
 	if (( typeof (formErrors) === 'undefined') || (formErrors.length < 1))
 		return;
 
-	var out = '<div>';
+	var out = '<ul>';
 	for (errorKey in formErrors) {
-		out += '<p>' + formErrors[errorKey] + '</p>';
+		out += '<li>' + formErrors[errorKey] + '</li>';
 	}
-	out += '</div>';
+	out += '</ul>';
 	return out;
 }
 

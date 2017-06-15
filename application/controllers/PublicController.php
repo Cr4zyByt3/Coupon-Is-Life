@@ -91,6 +91,18 @@ class PublicController extends Zend_Controller_Action
     {
     }
     
+    public function validateregisterAction() 
+    {
+        $this->_helper->getHelper('layout')->disableLayout();
+    		$this->_helper->viewRenderer->setNoRender();
+
+        $userform = new Application_Form_Public_User();
+        $response = $userform->processAjax($_POST); 
+        if ($response !== null) {
+        	   $this->getResponse()->setHeader('Content-type','application/json')->setBody($response);        	
+        }
+    }
+    
     public function registraAction()
     {
         if (!$this->getRequest()->isPost()) {
@@ -150,9 +162,11 @@ class PublicController extends Zend_Controller_Action
         }
 	$formLog = $this->_formLog;
         if (!$formLog->isValid($request->getPost())) {
+            $formLog->setDescription('Attention: username and/or password are incorrect.');
             return $this->render('login');
         }
         if (false === $this->_authService->authenticate($formLog->getValues())) {
+            $formLog->setDescription('Failed to authenticate. Retry');
             return $this->render('login');
         }
         $livello = $this->_authService->getIdentity()->livello;
